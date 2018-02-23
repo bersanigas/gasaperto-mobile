@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>GASBLod - Mobile</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="css/shop-homepage.css" rel="stylesheet">
+	
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.js"></script>
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	
+	<!-- Custom JavaScript -->
+	<script src="scripts/utilities.js"></script>
+	</head>
+
+	<body>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="#">Start Bootstrap</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="index.html">Home
+						<span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Services</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" onclick="logout()">Esci</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container" style="margin-top: 20px">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card ">
+					<div class="card-header">
+						<h3 class="text-xs-center"><strong>Order summary</strong></h3>
+					</div>
+					<div class="card-block">
+						<div class="table-responsive">
+							<table class="table table-sm">
+								<thead>
+									<tr>
+										<td><strong>Prodotto</strong></td>
+										<td class="text-xs-center"><strong>Prezzo</strong></td>
+										<td class="text-xs-center"><strong>Quantit&#224;</strong></td>
+										<td class="text-xs-right"><strong>Totale</strong></td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Samsung Galaxy S5</td>
+										<td class="text-xs-center">$900</td>
+										<td class="text-xs-center">1</td>
+										<td class="text-xs-right">$900</td>
+									</tr>
+									<tr>
+										<td>Samsung Galaxy S5 Extra Battery</td>
+										<td class="text-xs-center">$30.00</td>
+										<td class="text-xs-center">1</td>
+										<td class="text-xs-right">$30.00</td>
+									</tr>
+									<tr>
+										<td>Screen protector</td>
+										<td class="text-xs-center">$7</td>
+										<td class="text-xs-center">4</td>
+										<td class="text-xs-right">$28</td>
+									</tr>
+									<tr>
+										<td class="highrow"></td>
+										<td class="highrow"></td>
+										<td class="highrow text-xs-center"><strong>Subtotal</strong></td>
+										<td class="highrow text-xs-right">$958.00</td>
+									</tr>
+									<tr>
+										<td class="emptyrow"></td>
+										<td class="emptyrow"></td>
+										<td class="emptyrow text-xs-center"><strong>Shipping</strong></td>
+										<td class="emptyrow text-xs-right">$20</td>
+									</tr>
+									<tr>
+										<td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
+										<td class="emptyrow"></td>
+										<td class="emptyrow text-xs-center"><strong>Total</strong></td>
+										<td class="emptyrow text-xs-right">$978.00</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
+<style>
+.height {
+    min-height: 200px;
+}
+
+.icon {
+    font-size: 47px;
+    color: #5CB85C;
+}
+
+.iconbig {
+    font-size: 77px;
+    color: #5CB85C;
+}
+
+.table > tbody > tr > .emptyrow {
+    border-top: none;
+}
+
+.table > thead > tr > .emptyrow {
+    border-bottom: none;
+}
+
+.table > tbody > tr > .highrow {
+    border-top: 3px solid;
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		if (checkAuthentication() == "KO") {
+			window.location.href = 'login.html';
+		} else {
+			getOrdiniAperti();
+		}
+	});
+	
+	function logout() {
+		if (logOut()) {
+			window.location.href = 'login.html';
+		} else {
+			alert("Attenzione, non è stato possibile distruggere la sessione. Eseguire una pulizia dei dati temporanei dal browser.");
+		}
+	}
+</script>
